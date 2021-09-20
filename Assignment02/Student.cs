@@ -27,7 +27,6 @@ namespace Assignment02
     private Status findStatus()
     {
       const int EARLIER = -1;
-      const int SAME    = 0;
       const int LATER   = 1;
       
       DateTime now = DateTime.Now;      
@@ -50,7 +49,7 @@ namespace Assignment02
       return Status.ACTIVE;
     }
 
-    public string ToString()
+    public override string ToString()
     {
       StringBuilder builder = new StringBuilder("");
 

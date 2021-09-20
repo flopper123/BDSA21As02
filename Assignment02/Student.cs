@@ -54,7 +54,7 @@ namespace Assignment02
     {
       StringBuilder builder = new StringBuilder("");
 
-      builder.AppendFormat("#{0} - {1}, {2}: {3} {4]", Id, Surname, GivenName, statusToStr(), formatTime());
+      builder.AppendFormat("#{0} - {1}, {2}: {3} {4}", Id, Surname, GivenName, statusToStr(), formatTime());
 
       return builder.ToString();
     }

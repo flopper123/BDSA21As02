@@ -64,7 +64,7 @@ namespace Assignment02.Tests
     private Student generateDropoutStudent(int year, int month) {
       Student s = new Student(0);
       s.StartDate = new DateTime(year, month, 15);
-      s.GraduationDate = new DateTime( year + 3, ((month + 8) % 11) + 1);
+      s.GraduationDate = new DateTime( year + 3, ((month + 8) % 11) + 1, 4);
       s.EndDate = new DateTime(year + 1, month, 04);
       return s;
     }
@@ -80,44 +80,47 @@ namespace Assignment02.Tests
       "#4 - Doe, John: Dropout (2020 - 2021)",
       4,
       "John", "Doe",
-      new DateTime(2020, 09, 10),
-      new DateTime(2021, 09, 10),
+      2020, 09, 10,
+      2021, 09, 10,
       true
     )]
     [InlineData(
-      "#7 - Doe, Jane: Active (2019 - 2023)",
-      4,
+      "#5 - Doe, Jane: Active (2019 - 2022)",
+      5,
       "Jane", "Doe",
-      new DateTime(2019, 09, 10),
-      new DateTime(2023, 09, 10),
+      2019, 09, 10,
+      2022, 09, 10,
       false
     )]
     [InlineData(
       "#7 - G, Young: New (2021 - 2024)",
-      4,
+      7,
       "Young", "G",
-      new DateTime(2021, 09, 10),
-      new DateTime(2024, 09, 10),
+      2021, 09, 10,
+      2024, 09, 10,
       false
     )]
     [InlineData(
-      "#7 - G, Original: New (2021 - 2024)",
-      4,
+      "#7 - G, Original: Graduated (2000 - 2003)",
+      7,
       "Original", "G",
-      new DateTime(2000, 09, 10),
-      new DateTime(2003, 09, 10),
+      2000, 09, 10,
+      2003, 09, 10,
       false
     )]
-    public void GeneratesCorrectToString(string studentString, int id, string givenName, string surname, DateTime start, DateTime end, bool isDropout) {
+    public void GeneratesCorrectToString(string studentString, int id, string givenName, string surname, int sy, int sm, int sd, int ey, int em, int ed, bool isDropout) {
       // Arrange
       string expected = studentString;
+
+      DateTime start = new DateTime(sy, sm, sd); 
+      DateTime end = new DateTime(ey, em, ed); 
 
       Student s = new Student(id);
       s.GivenName = givenName;
       s.Surname = surname;
       s.StartDate = start;
       s.GraduationDate = start.AddYears(3);
-      s.EndDate = isDropout ? start.AddMonths(1) : s.GraduationDate;
+      s.EndDate = isDropout ? end : s.GraduationDate;
 
       // Act
       string actual = s.ToString();

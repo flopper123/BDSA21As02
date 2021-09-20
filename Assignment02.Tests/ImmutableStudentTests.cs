@@ -14,9 +14,9 @@ namespace Assignment02.Tests
           id,
           "John", "Doe",
           Status.GRADUATED,
-          new DateTime(2003, 6, 21),
-          new DateTime(2006, 4, 13),
-          new DateTime(2006, 4, 13)
+          new DateTime(2003, 11, 21),
+          new DateTime(2006, 10, 13),
+          new DateTime(2006, 10, 13)
         );
       } else {
         return new ImmutableStudent
@@ -24,9 +24,9 @@ namespace Assignment02.Tests
           id,
           "Jane", "Doe",
           Status.ACTIVE,
-          new DateTime(2020, 6, 21),
-          new DateTime(2024, 4, 13),
-          new DateTime(2024, 4, 13)
+          new DateTime(2020, 10, 21),
+          new DateTime(2024, 11, 13),
+          new DateTime(2024, 11, 13)
         );
       }
     }
@@ -66,11 +66,11 @@ namespace Assignment02.Tests
     [Theory]
     [InlineData(
       0,
-      "ImmutableStudent { Id = 0, GivenName = John, Surname = Doe, Status = GRADUATED, StartDate = 6/21/2003 12:00:00 AM, GraduationDate = 4/13/2006 12:00:00 AM, EndDate = 4/13/2006 12:00:00 AM }"
+      "ImmutableStudent { Id = 0, GivenName = John, Surname = Doe, Status = GRADUATED, StartDate = 11/21/2003 12:00:00 AM, GraduationDate = 10/13/2006 12:00:00 AM, EndDate = 10/13/2006 12:00:00 AM }"
     )]
     [InlineData(
       1,
-      "ImmutableStudent { Id = 1, GivenName = Jane, Surname = Doe, Status = ACTIVE, StartDate = 6/21/2020 12:00:00 AM, GraduationDate = 4/13/2024 12:00:00 AM, EndDate = 4/13/2024 12:00:00 AM }"
+      "ImmutableStudent { Id = 1, GivenName = Jane, Surname = Doe, Status = ACTIVE, StartDate = 10/21/2020 12:00:00 AM, GraduationDate = 11/13/2024 12:00:00 AM, EndDate = 11/13/2024 12:00:00 AM }"
     )]
     public void HasCorrectToString(int id, string input)
     {

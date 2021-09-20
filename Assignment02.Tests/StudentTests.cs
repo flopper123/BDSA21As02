@@ -109,7 +109,7 @@ namespace Assignment02.Tests
       false
     )]
     public void GeneratesCorrectToString(string studentString, int id, string givenName, string surname, int sy, int sm, int sd, int ey, int em, int ed, bool isDropout) {
-      // Arrange
+      // Arrange 
       string expected = studentString;
 
       DateTime start = new DateTime(sy, sm, sd); 
